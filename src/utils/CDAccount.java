@@ -5,6 +5,9 @@ public class CDAccount implements Account {
     private int user_balance = 0;
     
     public CDAccount(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("name can not be null");
+        }
         user_name = name;
         user_balance = 0;
     }
