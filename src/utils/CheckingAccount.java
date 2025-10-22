@@ -63,7 +63,7 @@ public class CheckingAccount implements Account {
 
         int delta_day = delta_time.getDays();
 
-        user_balance += (int)(delta_day * year_interest_rate / 365 / 100);
+        user_balance += (int)(user_balance * delta_day * year_interest_rate / 365 / 100);
 
         last_interest_date = now_date;
     }

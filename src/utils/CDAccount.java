@@ -77,7 +77,7 @@ public class CDAccount implements Account {
             delta_month = duration;
         }
         
-        user_balance += (int)(delta_month * year_interest_rate / 12 / 100);
+        user_balance += (int)(user_balance * delta_month * year_interest_rate / 12 / 100);
 
         duration -= delta_month;
         last_interest_date = now_date;

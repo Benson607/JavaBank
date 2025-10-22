@@ -59,7 +59,7 @@ public class SavingAccount implements Account {
 
         int delta_month = delta_time.getMonths();
         
-        user_balance += (int)(delta_month * year_interest_rate / 12 / 100);
+        user_balance += (int)(user_balance * delta_month * year_interest_rate / 12 / 100);
 
         last_interest_date = now_date;
     }
