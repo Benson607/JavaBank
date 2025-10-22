@@ -18,6 +18,7 @@ public class Tester {
         System.out.println("compute interest");
         checking_account.compute_interest();
         System.out.println("balance now: " + checking_account.balance());
+        System.out.println("CheckingAccount test finish");
         System.out.println();
     }
     
