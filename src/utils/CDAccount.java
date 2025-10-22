@@ -9,20 +9,20 @@ public class CDAccount implements Account {
         user_balance = 0;
     }
 
-    public void deposit(int money) throws Exception {
+    public void deposit(int money) {
         if (money < 0) {
-            throw new Exception("can not deposit money that less than 0");
+            throw new IllegalArgumentException("can not deposit money that less than 0");
         }
         user_balance += money;
     }
 
-    public void withdraw(int money) throws Exception {
+    public void withdraw(int money) {
         if (money < 0) {
-            throw new Exception("can not deposit money that less than 0");
+            throw new IllegalArgumentException("can not deposit money that less than 0");
         }
 
         if (money > user_balance) {
-            throw new Exception("you don't have enough money");
+            throw new UnsupportedOperationException("you don't have enough money");
         }
         
         user_balance -= money;
