@@ -1,15 +1,28 @@
 package utils;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class CheckingAccount implements Account {
     private String user_name = "";
     private int user_balance = 0;
     
-    public CheckingAccount(String name) {
+    private double year_interest_rate;
+
+    private LocalDate last_interest_date;
+    
+    public CheckingAccount(String name, double year_interest_rate) {
         if (name == null) {
             throw new IllegalArgumentException("name can not be null");
         }
+        if (year_interest_rate < 0.0) {
+            throw new IllegalArgumentException("interest rate can not less than 0");
+        }
         user_name = name;
+        this.year_interest_rate = year_interest_rate;
         user_balance = 0;
+
+        last_interest_date = BankCalendar.get_date_object();
     }
 
     public void deposit(int money) {
@@ -27,6 +40,10 @@ public class CheckingAccount implements Account {
         if (money > user_balance) {
             throw new UnsupportedOperationException("you don't have enough money");
         }
+
+        if (user_balance - money < 1000) {
+            throw new UnsupportedOperationException("you must leave 1000 dollar in checking account");
+        }
         
         user_balance -= money;
     }
@@ -40,6 +57,14 @@ public class CheckingAccount implements Account {
     }
     
     public void compute_interest() {
+        LocalDate now_date = BankCalendar.get_date_object();
+        
+        Period delta_time = Period.between(last_interest_date, now_date);
 
+        int delta_day = delta_time.getDays();
+
+        user_balance += (int)(delta_day * year_interest_rate / 365 / 100);
+
+        last_interest_date = now_date;
     }
 }
