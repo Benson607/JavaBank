@@ -1,6 +1,7 @@
 # Quick Start
 
 ```
+mkdir bin
 javac -d bin src\utils\*.java src\Main.java
 java -cp bin Main
 ```
