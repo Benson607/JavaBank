@@ -7,6 +7,9 @@ public class SavingAccount implements Account {
     private String user_name = "";
     private int user_balance = 0;
 
+    private LocalDate last_withdraw_date;
+    private int withdraw_times = 0;
+
     private double year_interest_rate;
 
     private LocalDate last_interest_date;
@@ -22,6 +25,7 @@ public class SavingAccount implements Account {
         this.year_interest_rate = year_interest_rate;
         user_balance = 0;
 
+        last_withdraw_date = BankCalendar.get_date_object();
         last_interest_date = BankCalendar.get_date_object();
     }
 
@@ -41,6 +45,25 @@ public class SavingAccount implements Account {
             throw new UnsupportedOperationException("you don't have enough money");
         }
         
+        LocalDate now_date = BankCalendar.get_date_object();
+
+        Period delta_month = Period.between(last_withdraw_date, now_date);
+
+        if (delta_month.getMonths() > 0) {
+            withdraw_times = 0;
+            last_withdraw_date = now_date;
+        }
+
+        if (withdraw_times >= 3) {
+            money += 1;
+
+            if (money > user_balance) {
+                throw new UnsupportedOperationException("you don't have enough money");
+            }
+        }
+
+        withdraw_times++;
+
         user_balance -= money;
     }
     

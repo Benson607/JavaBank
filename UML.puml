@@ -1,0 +1,53 @@
+@startuml Bank
+class BackCalendar {
+    -date : LocalDate
+    +now() : String
+    +fast_forward_by_day : void
+    +fast_forward_by_month : void
+    +fast_forward_by_year : void
+    +get_date_object() : LocalDate
+}
+
+interface Account {
+    +deposit()
+    +withdraw()
+    +name()
+    +balance()
+    +compute_interest()
+}
+
+class CheckingAccount extends Account {
+    -user_name : String
+    -user_balance : int
+}
+
+class SavingAccount extends Account {
+    -user_name : String
+    -user_balance : int
+
+}
+
+class CDAccount extends Account {
+    -user_name : String
+    -user_balance : int
+
+}
+
+class LoanAccount extends Account {
+    -user_name : String
+    -user_balance : int
+    
+}
+
+class Tester {
+    +CheckingAccountNormalTest : void
+    +SavingAccountNormalTest : void
+    +CDAccountNormalTest : void
+    +LoanAccountNormalTest : void
+    +CheckingAccountExceptionTest : void
+    +SavingAccountExceptionTest : void
+    +CDAccountExceptionTest : void
+    +LoanAccountExceptionTest : void
+}
+
+@enduml
