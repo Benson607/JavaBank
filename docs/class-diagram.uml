@@ -1,11 +1,18 @@
 @startuml Bank
-class BackCalendar {
-    -date : LocalDate {static}
-    +now() : String {static}
-    +fast_forward_by_day(days:int) : void {static}
-    +fast_forward_by_month(months:int) : void {static}
-    +fast_forward_by_year(years:int) : void {static}
-    +get_date_object() : LocalDate {static}
+
+left to right direction
+skinparam nodesep 80
+skinparam ranksep 140
+
+class Tester {
+    +CheckingAccountNormalTest() : void
+    +SavingAccountNormalTest() : void
+    +CDAccountNormalTest() : void
+    +LoanAccountNormalTest() : void
+    +CheckingAccountExceptionTest() : void
+    +SavingAccountExceptionTest() : void
+    +CDAccountExceptionTest() : void
+    +LoanAccountExceptionTest() : void
 }
 
 interface Account {
@@ -47,15 +54,13 @@ class LoanAccount extends Account {
     -last_interest_date : LocalDate
 }
 
-class Tester {
-    +CheckingAccountNormalTest() : void
-    +SavingAccountNormalTest() : void
-    +CDAccountNormalTest() : void
-    +LoanAccountNormalTest() : void
-    +CheckingAccountExceptionTest() : void
-    +SavingAccountExceptionTest() : void
-    +CDAccountExceptionTest() : void
-    +LoanAccountExceptionTest() : void
+class BackCalendar {
+    -date : LocalDate {static}
+    +now() : String {static}
+    +fast_forward_by_day(days:int) : void {static}
+    +fast_forward_by_month(months:int) : void {static}
+    +fast_forward_by_year(years:int) : void {static}
+    +get_date_object() : LocalDate {static}
 }
 
 @enduml
