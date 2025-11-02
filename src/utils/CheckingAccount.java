@@ -1,7 +1,7 @@
 package utils;
 
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.temporal.ChronoUnit;
 
 public class CheckingAccount implements Account {
     private String user_name = "";
@@ -59,9 +59,7 @@ public class CheckingAccount implements Account {
     public void compute_interest() {
         LocalDate now_date = BankCalendar.get_date_object();
         
-        Period delta_time = Period.between(last_interest_date, now_date);
-
-        int delta_day = delta_time.getDays();
+        long delta_day = ChronoUnit.DAYS.between(last_interest_date, now_date);
 
         user_balance += (int)(user_balance * delta_day * year_interest_rate / 365 / 100);
 

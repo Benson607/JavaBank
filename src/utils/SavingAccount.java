@@ -58,7 +58,7 @@ public class SavingAccount implements Account {
             money += 1;
 
             if (money > user_balance) {
-                throw new UnsupportedOperationException("you don't have enough money");
+                throw new UnsupportedOperationException("you don't have enough money to spend handling fees");
             }
         }
 
@@ -80,7 +80,7 @@ public class SavingAccount implements Account {
         
         Period delta_time = Period.between(last_interest_date, now_date);
 
-        int delta_month = delta_time.getMonths();
+        int delta_month = delta_time.getYears() * 12 + delta_time.getMonths();
         
         user_balance += (int)(user_balance * delta_month * year_interest_rate / 12 / 100);
 

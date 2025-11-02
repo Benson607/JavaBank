@@ -31,7 +31,7 @@ public class CDAccount implements Account {
         user_balance = init_amount;
         this.duration = duration;
 
-        last_interest_date = BankCalendar.get_date_object();
+        last_interest_date = BankCalendar.get_date_object().plusDays(0);
     }
 
     public void deposit(int money) {
@@ -71,7 +71,7 @@ public class CDAccount implements Account {
         
         Period delta_time = Period.between(last_interest_date, now_date);
 
-        int delta_month = delta_time.getMonths();
+        int delta_month = delta_time.getYears() * 12 + delta_time.getMonths();
 
         if (delta_month > duration) {
             delta_month = duration;

@@ -23,7 +23,7 @@ public class LoanAccount implements Account {
         }
         user_name = name;
         this.year_interest_rate = year_interest_rate;
-        user_balance = loan;
+        user_balance = -loan;
 
         last_interest_date = BankCalendar.get_date_object();
     }
@@ -36,7 +36,7 @@ public class LoanAccount implements Account {
     }
 
     public void withdraw(int money) {
-        throw new UnsupportedOperationException("you can not withdra in loan account");
+        throw new UnsupportedOperationException("you can not withdraw in loan account");
     }
     
     public String name() {
@@ -52,9 +52,9 @@ public class LoanAccount implements Account {
         
         Period delta_time = Period.between(last_interest_date, now_date);
 
-        int delta_month = delta_time.getMonths();
+        int delta_month = delta_time.getYears() * 12 + delta_time.getMonths();
         
-        user_balance -= (int)(user_balance * delta_month * year_interest_rate / 12 / 100);
+        user_balance += (int)(user_balance * delta_month * year_interest_rate / 12 / 100);
 
         last_interest_date = now_date;
     }

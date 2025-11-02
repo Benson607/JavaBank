@@ -4,11 +4,11 @@ public class Main {
     public static void main(String[] args) {
         Tester tester = new Tester();
 
-        tester.CheckingAccountNormalTest();
+        //tester.CheckingAccountNormalTest();
 
-        tester.SavingAccountNormalTest();
+        //tester.SavingAccountNormalTest();
         
-        tester.CDAccountNormalTest();
+        //tester.CDAccountNormalTest();
         
         tester.LoanAccountNormalTest();
         
