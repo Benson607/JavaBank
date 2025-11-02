@@ -1,10 +1,10 @@
-package utils;
+package account;
 
 public class Tester {
     public void CheckingAccountNormalTest() {
         System.out.println("CheckingAccount test start");
         System.out.println("create checking account that interest rate of year is 10%");
-        CheckingAccount checking_account = new CheckingAccount("checking_account", 10);
+        Checking checking_account = new Checking("checking_account", 10);
         System.out.println("account name: " + checking_account.name());
         System.out.println("balance now: " + checking_account.balance());
         System.out.println("deposit 2000 dollar");
@@ -25,7 +25,7 @@ public class Tester {
     public void SavingAccountNormalTest() {
         System.out.println("SavingAccount test start");
         System.out.println("create saving account that interest rate of year is 10%");
-        SavingAccount saving_account = new SavingAccount("saving_account", 10);
+        Saving saving_account = new Saving("saving_account", 10);
         System.out.println("account name: " + saving_account.name());
         System.out.println("balance now: " + saving_account.balance());
         System.out.println("deposit 2000 dollar");
@@ -52,7 +52,7 @@ public class Tester {
     public void CDAccountNormalTest() {
         System.out.println("CDAccount test start");
         System.out.println("create CD account that interest rate of year is 10% and have 5000 dollar and the duration is 12 month");
-        CDAccount cd_account = new CDAccount("cd_account", 10, 5000, 12);
+        CD cd_account = new CD("cd_account", 10, 5000, 12);
         System.out.println("account name: " + cd_account.name());
         System.out.println("balance now: " + cd_account.balance());
         System.out.println("withdraw 500 dollar");
@@ -77,7 +77,7 @@ public class Tester {
     public void LoanAccountNormalTest() {
         System.out.println("LoanAccount test start");
         System.out.println("create loan account that interest rate of year is 10% and have 5000 loan");
-        LoanAccount loan_account = new LoanAccount("loan_account", 10, 5000);
+        Loan loan_account = new Loan("loan_account", 10, 5000);
         System.out.println("account name: " + loan_account.name());
         System.out.println("balance now: " + loan_account.balance());
         System.out.println("deposit 2000 dollar");

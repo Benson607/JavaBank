@@ -1,14 +1,14 @@
-import utils.*;
+import account.*;
 
-public class Main {
+public class Application {
     public static void main(String[] args) {
         Tester tester = new Tester();
 
-        //tester.CheckingAccountNormalTest();
+        tester.CheckingAccountNormalTest();
 
-        //tester.SavingAccountNormalTest();
+        tester.SavingAccountNormalTest();
         
-        //tester.CDAccountNormalTest();
+        tester.CDAccountNormalTest();
         
         tester.LoanAccountNormalTest();
         

@@ -1,9 +1,9 @@
-package utils;
+package account;
 
 import java.time.LocalDate;
 import java.time.Period;
 
-public class LoanAccount implements Account {
+public class Loan implements Account {
     private String user_name = "";
     private int user_balance = 0;
     
@@ -11,7 +11,7 @@ public class LoanAccount implements Account {
 
     private LocalDate last_interest_date;
     
-    public LoanAccount(String name, double year_interest_rate, int loan) {
+    public Loan(String name, double year_interest_rate, int loan) {
         if (name == null) {
             throw new IllegalArgumentException("name can not be null");
         }

@@ -1,9 +1,9 @@
-package utils;
+package account;
 
 import java.time.LocalDate;
 import java.time.Period;
 
-public class CDAccount implements Account {
+public class CD implements Account {
     private String user_name = "";
     private int user_balance = 0;
 
@@ -13,7 +13,7 @@ public class CDAccount implements Account {
 
     private LocalDate last_interest_date;
     
-    public CDAccount(String name, double year_interest_rate, int init_amount, int duration) {
+    public CD(String name, double year_interest_rate, int init_amount, int duration) {
         if (name == null) {
             throw new IllegalArgumentException("name can not be null");
         }
