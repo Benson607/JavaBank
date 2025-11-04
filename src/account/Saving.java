@@ -38,7 +38,7 @@ public class Saving implements Account {
 
     public void withdraw(int money) {
         if (money < 0) {
-            throw new IllegalArgumentException("can not deposit money that less than 0");
+            throw new IllegalArgumentException("can not withdraw money that less than 0");
         }
 
         if (money > user_balance) {
