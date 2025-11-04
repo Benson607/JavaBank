@@ -86,4 +86,31 @@ public class Saving implements Account {
 
         last_interest_date = now_date;
     }
+
+    public static void NormalTest() {
+        System.out.println("SavingAccount test start");
+        System.out.println("create saving account that interest rate of year is 10%");
+        Saving saving_account = new Saving("saving_account", 10);
+        System.out.println("account name: " + saving_account.name());
+        System.out.println("balance now: " + saving_account.balance());
+        System.out.println("deposit 2000 dollar");
+        saving_account.deposit(5000);
+        System.out.println("balance now: " + saving_account.balance());
+        System.out.println("withdraw 500 dollar 3 times");
+        saving_account.withdraw(500);
+        saving_account.withdraw(500);
+        saving_account.withdraw(500);
+        System.out.println("balance now: " + saving_account.balance());
+        System.out.println("withdraw 500 dollar");
+        saving_account.withdraw(500);
+        System.out.println("balance now: " + saving_account.balance());
+        System.out.println("you can see that only 2999 dollar because the handling fee");
+        System.out.println("jump to 1 month later");
+        BankCalendar.fast_forward_by_month(1);
+        System.out.println("compute interest");
+        saving_account.compute_interest();
+        System.out.println("balance now: " + saving_account.balance());
+        System.out.println("SavingAccount test finish");
+        System.out.println();
+    }
 }

@@ -58,4 +58,22 @@ public class Loan implements Account {
 
         last_interest_date = now_date;
     }
+
+    public static void NormalTest() {
+        System.out.println("LoanAccount test start");
+        System.out.println("create loan account that interest rate of year is 10% and have 5000 loan");
+        Loan loan_account = new Loan("loan_account", 10, 5000);
+        System.out.println("account name: " + loan_account.name());
+        System.out.println("balance now: " + loan_account.balance());
+        System.out.println("deposit 2000 dollar");
+        loan_account.deposit(2000);
+        System.out.println("balance now: " + loan_account.balance());
+        System.out.println("jump to 10 months later");
+        BankCalendar.fast_forward_by_month(10);
+        System.out.println("compute interest");
+        loan_account.compute_interest();
+        System.out.println("balance now: " + loan_account.balance());
+        System.out.println("LoanAccount test finish");
+        System.out.println();
+    }
 }

@@ -82,4 +82,29 @@ public class CD implements Account {
         duration -= delta_month;
         last_interest_date = now_date;
     }
+
+    public static void NormalTest() {
+        System.out.println("CDAccount test start");
+        System.out.println("create CD account that interest rate of year is 10% and have 5000 dollar and the duration is 12 month");
+        CD cd_account = new CD("cd_account", 10, 5000, 12);
+        System.out.println("account name: " + cd_account.name());
+        System.out.println("balance now: " + cd_account.balance());
+        System.out.println("withdraw 500 dollar");
+        cd_account.withdraw(500);
+        System.out.println("balance now: " + cd_account.balance());
+        System.out.println("you can see that only 4250 dollar because the handling fee");
+        System.out.println("jump to 12 month later");
+        BankCalendar.fast_forward_by_month(12);
+        System.out.println("compute interest");
+        cd_account.compute_interest();
+        System.out.println("balance now: " + cd_account.balance());
+        System.out.println("jump to 1 month later");
+        BankCalendar.fast_forward_by_month(1);
+        System.out.println("compute interest");
+        cd_account.compute_interest();
+        System.out.println("balance now: " + cd_account.balance());
+        System.out.println("you can see that the balance has no increase because the duration is pass");
+        System.out.println("CDAccount test finish");
+        System.out.println();
+    }
 }

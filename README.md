@@ -2,7 +2,7 @@
 
 ```
 mkdir bin
-javac -d bin src\utils\*.java src\Main.java
+javac -d bin src\account\*.java src\Application.java
 java -cp bin Main
 ```
 
