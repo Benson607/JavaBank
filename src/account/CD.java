@@ -21,10 +21,10 @@ public class CD implements Account {
             throw new IllegalArgumentException("interest rate can not less than 0");
         }
         if (init_amount < 0.0) {
-            throw new IllegalArgumentException("initial amoun can not less than 0");
+            throw new IllegalArgumentException("initial amount can not less than 0");
         }
         if (duration < 0.0) {
-            throw new IllegalArgumentException("interest rate can not less than 0");
+            throw new IllegalArgumentException("duration can not less than 0");
         }
         user_name = name;
         this.year_interest_rate = year_interest_rate;

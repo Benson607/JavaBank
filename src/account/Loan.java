@@ -32,6 +32,11 @@ public class Loan implements Account {
         if (money < 0) {
             throw new IllegalArgumentException("can not deposit money that less than 0");
         }
+
+        if (user_balance == 0) {
+            throw new UnsupportedOperationException("you don't have loan to repay");
+        }
+
         user_balance += money;
     }
 
