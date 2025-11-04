@@ -1,19 +1,19 @@
 package exception;
 
 public class InsufficientFundsException {
-    public void CheckingAccountExceptionTest() {
+    public static void CheckingAccountExceptionTest() {
 
     }
     
-    public void SavingAccountExceptionTest() {
+    public static void SavingAccountExceptionTest() {
 
     }
     
-    public void CDAccountExceptionTest() {
+    public static void CDAccountExceptionTest() {
 
     }
     
-    public void LoanAccountExceptionTest() {
+    public static void LoanAccountExceptionTest() {
 
     }
 }
