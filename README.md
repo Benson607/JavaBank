@@ -2,7 +2,7 @@
 
 ```
 mkdir bin
-javac -d bin src\account\*.java src\Application.java
+javac -d bin src\account\*.java src\exception\*.java src\Application.java
 java -cp bin Main
 ```
 
